@@ -1,0 +1,204 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Hello, world!</title>
+    {%block style_block %}
+    {% endblock%}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <img src="{% static 'images/logo.png' %}" width="150" height="100">
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">About us</a>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link active" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Service</a>
+              </li>
+              <li class="nav-item">
+
+                <a class="nav-link active" href="{% url 'contact' %}">Contact us</a>
+              </li>
+
+            </ul>
+           
+          </div>
+        </div>
+      </nav>
+
+
+
+
+{% block body_block %}
+
+{%  endblock %}
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.standalone.js"
+      integrity="sha512-AtGkQVw5dVZR8URiScMJF/O46VB5I4JRo+wsLSwCKvtnlCwlWV/59excjg1+hFmuXuQhwYvoADflVbN4fMAKNg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/textify.js@3.0.1/dist/Textify.min.js"></script>
+  <script>
+    var fonts = {
+        Inter: {
+          weight: 400,
+        },
+        Inter: {
+          weight: 500,
+        },
+        Inter: {
+          weight: 700,
+        },
+      };
+      
+      var observers = [];
+    
+      Object.keys(fonts).forEach(function (family) {
+        var data = fonts[family];
+        var obs = new FontFaceObserver(family, data);
+        observers.push(obs.load());
+      });
+      
+      // when all fonts are loaded, add class to body
+      Promise.all(observers).then(function () {
+        document.body.classList.add("fonts-loaded");
+        new Textify(
+      {
+        el: ".title-1",
+        animation: {
+          duration: 0.7,
+          ease: "power3.inOut",
+          animateProps: {
+            y: "-100%",
+          },
+        },
+      },
+      gsap
+    );
+  
+    new Textify(
+      {
+        el: ".paragraph-1",
+        largeText: true,
+        splitType: "lines",
+        animation: {
+          by: "lines",
+          duration: 0.7,
+          ease: "power3.inOut",
+          stagger: 0.1,
+          animateProps: {
+            opacity: 0,
+            y: "0",
+          },
+        },
+      },
+      gsap
+    );
+  
+    //   animation 2
+    new Textify(
+      {
+        el: ".title-2",
+        animation: {
+          duration: 0.7,
+          ease: "power2.inOut",
+          transformOrigin: "left top",
+          animateProps: {
+            y: "0",
+            rotate: -180,
+            scale: 0,
+          },
+        },
+      },
+      gsap
+    );
+  
+    new Textify(
+      {
+        el: ".paragraph-2",
+        largeText: true,
+        splitType: "lines",
+        animation: {
+          by: "lines",
+          duration: 1,
+          ease: "power3.inOut",
+          stagger: 0.1,
+          animateProps: {
+            scale: 0.5,
+            opacity: 0,
+          },
+        },
+      },
+      gsap
+    );
+  
+    //   animation 3
+    new Textify(
+      {
+        el: ".title-3",
+        animation: {
+          duration: 0.7,
+          ease: "back.inOut(1.7)",
+          animateProps: {
+            scale: 0,
+            opacity: 0,
+            y: "-100%"
+          },
+        },
+      },
+      gsap
+    );
+  
+    new Textify(
+      {
+        el: ".paragraph-3",
+        largeText: true,
+        splitType: "lines",
+        animation: {
+          by: "lines",
+          duration: 0.7,
+          ease: "power3.inOut",
+          stagger: 0.1,
+          transformOrigin: "left top",
+          animateProps: {
+            rotate: 30,
+            opacity: 0,
+          },
+        },
+      },
+      gsap
+    );
+  });
+  
+    </script>
+  
+    </body> 
+  </html>
+
+
+
